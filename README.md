@@ -17,7 +17,7 @@ docker run --rm \
         --chrome-flags="--headless --no-sandbox"
 ```
 
-This should resuls in a `lighthouse.json` file being generated in your directory.
+This should result in a `lighthouse.json` file being generated in your directory.
 
 Mounting a volume to `/dev/shm` is recommended to prevent the process from dying for a lack of available shared memory.
 
