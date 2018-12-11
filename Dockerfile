@@ -15,6 +15,11 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN npm install -g lighthouse
+
+# see https://github.com/carlesnunez/lighthouse-gh-reporter
 RUN npm install -g lighthouse-gh-reporter
+
+# see https://github.com/andreasonny83/lighthouse-ci
+RUN npm install -g lighthouse-ci
 
 ENTRYPOINT ["lighthouse"]
