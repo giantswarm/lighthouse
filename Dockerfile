@@ -17,7 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
 RUN npm install -g lighthouse
 
 # see https://github.com/carlesnunez/lighthouse-gh-reporter
-RUN npm install -g git+https://github.com/giantswarm/lighthouse-gh-reporter.git\#add-chrome-flag-allow-insecure-localhost
+RUN npm install -g git+https://github.com/giantswarm/lighthouse-gh-reporter.git\#add-chrome-flags
 
 # see https://github.com/andreasonny83/lighthouse-ci
 RUN npm install -g lighthouse-ci
