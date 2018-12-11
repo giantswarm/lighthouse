@@ -21,5 +21,3 @@ RUN npm install -g lighthouse-gh-reporter
 
 # see https://github.com/andreasonny83/lighthouse-ci
 RUN npm install -g lighthouse-ci
-
-ENTRYPOINT ["lighthouse"]
