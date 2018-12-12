@@ -1,3 +1,5 @@
+[![Docker Repository on Quay](https://quay.io/repository/giantswarm/lighthouse/status "Docker Repository on Quay")](https://quay.io/repository/giantswarm/lighthouse)
+
 # lighthouse
 
 Chrome Lighthouse in Docker, plus a few utilities useful for CI.
