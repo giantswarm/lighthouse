@@ -5,8 +5,9 @@ set -o nounset
 set -o pipefail
 
 readonly URL=$1
+readonly LABEL=$2
 
-OUTPUT_FILE=/out/lighthouse.json
+OUTPUT_FILE=/out/$LABEL.json
 
 lighthouse \
   $URL \
