@@ -1,3 +1,8 @@
+FROM golang:1.11 AS builder
+
+RUN go get github.com/giantswarm/lighthouse-keeper && \
+    go build github.com/giantswarm/lighthouse-keeper
+
 FROM debian:stretch
 
 RUN apt-get update && \
@@ -18,5 +23,7 @@ RUN npm install -g lighthouse
 
 # see https://github.com/andreasonny83/lighthouse-ci
 RUN npm install -g lighthouse-ci
+
+COPY --from=builder /go/lighthouse-keeper /usr/local/bin/lighthouse-keeper
 
 ADD ci-run.sh /usr/local/bin/ci-run.sh
