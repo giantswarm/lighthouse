@@ -55,26 +55,17 @@ docker run --rm \
 
 The `--score=90` flag sets a threshold score to pass of 90 in this case. Check [lighthouse-ci](https://github.com/andreasonny83/lighthouse-ci) for more flags.
 
-### Run lighthouse-github-reporter
+### Run lighthouse-keeper
 
-This allows to run lighthouse in CI for a GitHub pull request and comment back the result. See [carlesnunez/lighthouse-gh-reporter](https://github.com/carlesnunez/lighthouse-gh-reporter) for details.
+This allows to run lighthouse in CI for a GitHub pull request and comment back the result. See [giantswarm/lighthouse-keeper](https://github.com/giantswarm/lighthouse-keeper) for details.
+
+#### compare two lighthouse reports
 
 ```nohighlight
 docker run --rm \
-    -v $PWD:/out \
-    -v $PWD/dev-shm:/dev/shm \
-    -e GH_USER_AUTH_TOKEN=${GH_USER_AUTH_TOKEN} \
+    -v $PWD:/workdir -w /workdir \
     quay.io/giantswarm/lighthouse \
-    lighthouse-github-reporter \
-      --urls https://blog.giantswarm.io/ \
-      --prId <ID of tzhe GitHub PR> \
-      --reporterUserName taylorbot \
-      --noiseLevel low \
-      --owner giantswarm \
-      --repository blog \
-      --pwa 60 \
-      --performance 100 \
-      --accessibility 50 \
-      --bestPractices 60 \
-      --seo 100
+    lighthouse-keeper compare \
+      --input master.json --label master \
+      --input thisbranch.json --label "this branch"
 ```
