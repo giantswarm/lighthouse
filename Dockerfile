@@ -1,4 +1,4 @@
-FROM golang:1.11 AS builder
+FROM golang:1.12 AS builder
 
 RUN go get github.com/giantswarm/lighthouse-keeper && \
     go build github.com/giantswarm/lighthouse-keeper
@@ -15,14 +15,11 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
     rm google-chrome-stable_current_amd64.deb
 
 # Install NodeJS 8 and Lighthouse Module
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
-RUN npm install -g lighthouse
-
-# see https://github.com/andreasonny83/lighthouse-ci
-RUN npm install -g lighthouse-ci
+RUN npm install -g lighthouse lighthouse-plugin-greenhouse lighthouse-ci
 
 COPY --from=builder /go/lighthouse-keeper /usr/local/bin/lighthouse-keeper
 
