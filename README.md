@@ -19,6 +19,7 @@ docker run --rm \
         --output=json \
         --output-path=/out/lighthouse.json \
         --emulated-form-factor desktop \
+        --plugins=lighthouse-plugin-greenhouse \
         --chrome-flags="--headless --no-sandbox"
 ```
 

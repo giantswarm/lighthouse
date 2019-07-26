@@ -15,6 +15,7 @@ lighthouse \
   --emulated-form-factor desktop \
   --quiet \
   --chrome-flags="--headless --no-sandbox --ignore-certificate-errors"
+  --plugins=lighthouse-plugin-greenhouse
 
 if [[ ! -e $OUTPUT_FILE ]]; then
   echo "No lighthouse report written"
